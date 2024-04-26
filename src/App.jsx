@@ -1,5 +1,4 @@
 import { Provider } from "react-redux";
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Auth from "./layouts/Auth"
 import Admin from "./layouts/Admin";
 import routes from "./routes/index";
