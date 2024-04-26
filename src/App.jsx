@@ -5,12 +5,12 @@ import Admin from "./layouts/Admin";
 import routes from "./routes/index";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Redirect, Switch } from "react-router-dom/cjs/react-router-dom.min";
-import Providers from "./store/Providers";
+import store from "./store/index"
 
 function App() {
     return (
         <>
-            <Providers>
+            <Provider store={store}>
                 <BrowserRouter>
                     <Switch>
                         {routes.map((route,index) => {
@@ -36,7 +36,7 @@ function App() {
                         <Redirect to="/" />
                     </Switch>
                 </BrowserRouter>
-            </Providers>
+            </Provider>
         </>
     );
 }
