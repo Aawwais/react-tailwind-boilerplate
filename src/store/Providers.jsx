@@ -1,10 +1,8 @@
-"use client";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import store from "./store";
 import RefreshLoading from "../components/common/RefreshLoading";
-// import RefreshLoading from "@/components/common/RefreshLoading";
 
 let persistor = persistStore(store);
 

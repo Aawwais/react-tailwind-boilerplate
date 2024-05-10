@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { decrement, increment } from '../store/portfolio/porfolioSlice';
+import { logoutUser, resetAllSlices } from '../store/auth/authSlice';
 
 const Home = () => {
   let dispatch=useDispatch()

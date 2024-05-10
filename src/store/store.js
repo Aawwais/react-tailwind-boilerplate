@@ -6,35 +6,36 @@ import thunk from "redux-thunk";
 import userSlice from "./auth/authSlice";
 import portfolioSlice from "./portfolio/porfolioSlice";
 const reducers = combineReducers({
-  user: userSlice,
-  portfolio: portfolioSlice,
+    user: userSlice,
+    portfolio: portfolioSlice,
 });
 
 const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["user"],
+    key: "root",
+    storage,
+    whitelist: ["portfolio", "user"],
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 const rootReducer = (state, action) => {
-  if (action.type === "RESET_ALL_SLICES") {
-    storage.removeItem("persist:root");
-    const { user, ...resetSlices } = state;
-    const resetState = Object.keys(resetSlices).reduce((acc, key) => {
-      acc[key] = undefined;
-      return acc;
-    }, {});
-    state = {
-      user,
-      ...resetState,
-    };
-  }
-  return persistedReducer(state, action);
+    console.log(state);
+    if (action.type === "RESET_ALL_SLICES") {
+        storage.removeItem("persist:root");
+        const { user, ...resetSlices } = state;
+        const resetState = Object.keys(resetSlices).reduce((acc, key) => {
+            acc[key] = undefined;
+            return acc;
+        }, {});
+        state = {
+            user,
+            ...resetState,
+        };
+    }
+    return persistedReducer(state, action);
 };
 const store = configureStore({
-  reducer: rootReducer,
-  devTools: process.env.NODE_ENV !== "production",
-  middleware: [thunk],
+    reducer: rootReducer,
+    devTools: process.env.NODE_ENV !== "production",
+    middleware: [thunk],
 });
 
 export default store;
