@@ -9,15 +9,6 @@ module.exports = {
     ],
     theme: {
         extend: {
-            screens: {
-                xxl: "2560px",
-                xl: "1920px",
-                xss: "500px",
-                xsss: "460px",
-                xssss: "350px",
-                md: "650px",
-                // lg: "768px",
-            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 roboto: ["Roboto", "sans-serif"],
